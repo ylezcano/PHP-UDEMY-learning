@@ -21,7 +21,8 @@ $numero = 100;
 $decimal = 19.1;
 
 //SE PUEDEN CONCATENAR SIN USAR PUNTO (.) DENTRO DE LAS COMILLAS PERO DEBEN SER COMILLAS DOBLES NO SIMPLES
-$texto = "Soy un string $numero";
+//Con alt slash puedo hacer que las comillas sean interpretadas como texto
+$texto = "Soy un string \" $numero";
 
 echo $texto;
 $verdadero = true;
