@@ -64,7 +64,7 @@ switch ($dia){
 
 // GO TO nos sirve para ir a otra parte del programa
 
-goto marca;
+goto marca;  // No se ejecutarán las siguientes instrucciones por que el goto hace que se salten.
 echo "<h3>Instruccion 1</h3>";
 echo "<h3>Instruccion 2</h3>";
 echo "<h3>Instruccion 3</h3>";

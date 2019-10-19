@@ -30,4 +30,6 @@
     $edad=55;
     echo $edad . '<br>';
     echo ($edad+=5); // es lo mismo que escribir $edad = $edad + 5
+    
+    
 ?>

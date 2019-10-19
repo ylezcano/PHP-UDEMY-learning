@@ -45,6 +45,7 @@
       echo "Tienes acceso al local privado $contador <br/>";
       $contador++;
     }while($edad >= 18 && $contador <=10);
+  
 
 ?>
 

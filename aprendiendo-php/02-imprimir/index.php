@@ -17,7 +17,14 @@
             . '</ul>';
         echo '<p>En php se contactena con punto(.)'.' - '.' y se pueden usar comillas dobles o simples</p>';
         echo '<p>También se debe cerrar con punto y coma cada instrucción</p>'
+        // En PHP relizamos comentarios con doble slash
+        /* 
+        y para
+           comentar 
+           varias líneas 
+           ponemos barra asterisco y cerramos con asterisco barra 
+        */
     ?>
-
+    
 </body>
 </html>
