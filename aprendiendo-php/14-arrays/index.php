@@ -9,6 +9,14 @@
    $peliculas = array('Batman', 'Spiderman', 'El señor de los anillos');
    $cantantes =['2pac','Drake','Ozzy osborne'] ;  // cualquiera de las dos formas de definir el array es correcta.
 
+   //ARRAY ASOCIATIVO (por que se asocia un nombre al indice de un array.)
+   $personas = array(  //puedo nombrar los indices manualmente
+          'nombre' => 'Yonny',     //Indice nombre => valor Yonny
+          'apellidos' => 'lezcano', 
+          'web'  => 'lezcano2535@hotmail.es'
+        );
+   echo $personas['nombre']; //se imprime llamando el indice persona y se muestra el valor del indice (yonny)
+
    echo $peliculas[0]; 
    echo "<br/>";
    echo $cantantes[2];   //llamamos el indice 
@@ -38,4 +46,22 @@
        echo "<li>".$cantante."</li>";   // así se imprime en forma de lista                      
    }
    echo "</ul>";
+
+   //ARRAYS MULTIDIMENSIONALES
+   $contactos = array(
+         array(
+            'nombre' => 'Yonny',
+            'email' => 'lezcano2535@hotmail.es'
+         ),   
+        array(
+            'nombre' => 'leidy',
+            'email' => 'larroyag@gmail.com'
+        ),
+        array(
+            'nombre' => 'esneyder',
+            'email' => 'ylezcano@emtelco.com.co'
+     )  
+   );
+   echo $contactos[1]['nombre']; // llamando al indice 1 subindice nombre. (se imprime leidy)
+
 ?>
