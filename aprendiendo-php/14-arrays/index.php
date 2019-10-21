@@ -64,4 +64,5 @@
    );
    echo $contactos[1]['nombre']; // llamando al indice 1 subindice nombre. (se imprime leidy)
 
+   
 ?>
