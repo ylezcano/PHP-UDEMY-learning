@@ -13,6 +13,22 @@
             if($error == 'faltan_valores'){
                 echo '<strong style="color:red">Introduce todos los datos en todos los campos del formulario</strong>';
             }
+
+            if($error == 'nombre'){
+                echo '<strong style="color:red">Introduce bien el nombre</strong>';
+            }
+            if($error == 'apellidos'){
+                echo '<strong style="color:red">Introduce bien el apellido</strong>';
+            }
+            if($error == 'edad'){
+                echo '<strong style="color:red">La edad debe ser de máximo dos números</strong>';
+            }
+            if($error == 'email'){
+                echo '<strong style="color:red">Introduce bien el correo</strong>';
+            }
+            if($error == 'pass'){
+                echo '<strong style="color:red">Introduce bien el password, mínimo 5 caracteres</strong>';
+            }
         }
     ?>
 
