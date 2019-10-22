@@ -1,0 +1,3 @@
+Archivo de texto para prueba.
+Para poder leer cada línea se debe utilizar el ciclo while.
+tercera línea de prueba.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.Texto de prueba insertado desde php.
