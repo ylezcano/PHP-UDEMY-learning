@@ -12,3 +12,5 @@ mysqli_query($db, "SET NAMES 'UTF8"); //SETEAR BASE DE DATOS PARA QUE RECIBA TIL
 //INICIAR SESIÓN
 
 session_start();
+
+?>

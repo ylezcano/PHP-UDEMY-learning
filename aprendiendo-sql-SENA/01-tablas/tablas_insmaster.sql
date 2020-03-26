@@ -88,12 +88,8 @@ CREATE TABLE ventas (
 ALTER TABLE administrador ADD CONSTRAINT uq_documento UNIQUE(documento);
 ALTER TABLE solicitud ADD CONSTRAINT uq_num_doc UNIQUE(num_doc);
 
-INSERT INTO administrador VALUES(null,'Yonny Esneyder', 'Lezcano Benitez','1017141497');
 
-ALTER TABLE administrador  ADD  correo varchar(30)  NOT NULL;
-ALTER TABLE administrador  ADD  password varchar(30)  NOT NULL;
+INSERT INTO administrador VALUES(null,'Yonny Esneyder', 'Lezcano Benitez','1017141497','lezcano2535@hotmail.es','123456');
 
-ALTER TABLE solicitud  ADD  correo varchar(30)  NOT NULL;
-ALTER TABLE solicitud  ADD  password varchar(30)  NOT NULL;
 
 
