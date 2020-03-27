@@ -146,23 +146,35 @@ input[type="password"]{
     margin-bottom: 10px;
 }
 input[type="button"],
-input[type="submit"]{
+input[type="submit"],
+.boton{
     margin-top: 5px;
     margin-bottom: 5px;
-
     display: block;
     border-radius: 2px;
-    
     color: white;
     background: #007ee5;
     border: 1px solid #156785;
     cursor: pointer;
     padding: 7px;
-
-    
-    
 }
-
+.boton{
+    text-align: center;
+    width: 130px;
+    font-weight: bold;
+}
+.boton-verde{
+    background-color: #21b921;
+    border-color: green;
+}
+.boton-naranja{
+    background-color: orange;
+    border-color: rgb(226, 147, 1);
+}
+.boton-rojo{
+    background-color: red;
+    border-color: rgb(201, 0, 0);
+}
 /*PRINCIPAL*/
 #principal{
     float: left;

@@ -16,8 +16,9 @@ if(isset($_POST)){
     //- y se debe poner la conexión con la base de datos en este caso la variable $db
     $nombre = isset($_POST['nombre']) ? mysqli_real_escape_string($db, $_POST['nombre']) : false;  //ESTE TIPO DE SENTENCIA REEMPLZA AL "IF"
     $apellidos = isset($_POST['apellidos']) ? mysqli_real_escape_string($db, $_POST['apellidos']) : false;
-    $email  = isset($_POST['email']) ? mysqli_real_escape_string($db, $_POST['email']) : false;
+    $email  = isset($_POST['email']) ? mysqli_real_escape_string($db, trim($_POST['email'])) : false;
     $password = isset($_POST['password']) ? mysqli_real_escape_string($db, $_POST['password']) : false;
+    //SE USA LA FUNCIÓN  trim para que el email se guarde sin espacios.
 
     //Array de errores
     $errores = array();
