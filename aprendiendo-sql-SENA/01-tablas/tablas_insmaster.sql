@@ -1,11 +1,12 @@
 CREATE TABLE administrador (
   id_admin        int(5) auto_increment PRIMARY KEY,
-  nombre          varchar(15),
-  apellido        varchar(15),
+  nombre          varchar(50),
+  apellido        varchar(50),
   documento       int(11),
-  correo          varchar(30),
-  password        varchar(30),
-  CONSTRAINT documento UNIQUE(documento)
+  correo          varchar(100),
+  password        varchar(200),
+  CONSTRAINT documento UNIQUE(documento),
+  CONSTRAINT correo UNIQUE(correo)
 );
 
 CREATE TABLE solicitud (
@@ -15,17 +16,18 @@ CREATE TABLE solicitud (
 );
 
 CREATE TABLE agente (
-  id_agent           int(5) auto_increment PRIMARY KEY,
+  id_agent        int(5) auto_increment PRIMARY KEY,
   tipo_doc        char(2),
   num_doc         int(11),
-  nombre          varchar(15),
-  apellido        varchar(15),
+  nombre          varchar(50),
+  apellido        varchar(50),
   id_admin        int(5),
-  correo          varchar(30),
-  password        varchar(30),
+  correo          varchar(100),
+  password        varchar(200),
   id_solicitud       int(5),
   FOREIGN KEY (id_solicitud) REFERENCES solicitud(id_solicitud),
-  CONSTRAINT num_doc UNIQUE(num_doc)
+  CONSTRAINT num_doc UNIQUE(num_doc),
+  CONSTRAINT correo UNIQUE(correo)
 );
 
 CREATE TABLE chat (
@@ -85,11 +87,6 @@ CREATE TABLE ventas (
   FOREIGN KEY (id_agent) REFERENCES agente(id_agent)
 );
 
-ALTER TABLE administrador ADD CONSTRAINT uq_documento UNIQUE(documento);
-ALTER TABLE solicitud ADD CONSTRAINT uq_num_doc UNIQUE(num_doc);
-
-
-INSERT INTO administrador VALUES(null,'Yonny Esneyder', 'Lezcano Benitez','1017141497','lezcano2535@hotmail.es','123456');
 
 
 

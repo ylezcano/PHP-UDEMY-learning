@@ -14,17 +14,20 @@ if(isset($_POST)){
     // RECOJO DATOS DEL FORMULARIO
     $email = trim($_POST['email']);
     $password = $_POST['password'];
-
+    // var_dump($_POST);
     //CONSULTA PARA COMPROBAR LAS CREDENCIALES DEL USUARIO
     $sql = "SELECT  * FROM usuarios WHERE email = '$email'";
     $login = mysqli_query($db, $sql);
     
     if($login && mysqli_num_rows($login) == 1){
         $usuario = mysqli_fetch_assoc($login); //me saca un array asociativo de lo que me ha sacado de la BD
-                
+        // var_dump($usuario);          
         //COMPROBAR LA CONTRASEÑA / cifrar
         $verify = password_verify($password, $usuario['password']); //compara la contraseña ingresada por el usuario con la de la BD
         
+        // var_dump($verify);
+        // die();
+
         if($verify){
             //UTILIZAR UNA SESIÓN PARA GUARDAR LOS DATOS DEL USUARIO LOGUEADO
             $_SESSION['usuario'] = $usuario;

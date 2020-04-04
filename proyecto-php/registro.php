@@ -86,5 +86,6 @@ if(isset($_POST)){
        
     }
 }
-
+var_dump($_SESSION);
+die();
 header('Location: index.php');
