@@ -20,6 +20,10 @@ function borrarErrores() {
 		$_SESSION['completado'] = null;
 		session_unset();
 	}
+	if (isset($_SESSION['errores_entrada'])) {
+		$_SESSION['completado'] = null;
+		unset($_SESSION['errores_entrada']);
+	}
 	return $borrado;
 }
 
