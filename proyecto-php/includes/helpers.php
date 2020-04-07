@@ -14,15 +14,15 @@ function borrarErrores() {
 	$borrado = false;
 	if (isset($_SESSION['errores'])) {
 		$_SESSION['errores'] = null;	
-		session_unset();
+		$borrado = true;
 	}
 	if (isset($_SESSION['completado'])) {
 		$_SESSION['completado'] = null;
-		session_unset();
+		$borrado = true;
 	}
 	if (isset($_SESSION['errores_entrada'])) {
 		$_SESSION['completado'] = null;
-		unset($_SESSION['errores_entrada']);
+		$borrado = true;
 	}
 	return $borrado;
 }
@@ -38,10 +38,47 @@ function conseguirCategorias($conexion){ //Se usa $conexion como parámetro para
 	return $result;
 }
 
-function conseguirUltimasEntradas($conexion){
+function conseguirCategoria($conexion, $id){ //Se usa $conexion como parámetro para la conexión en la BD 
+	$sql = "SELECT * FROM categorias WHERE id = $id;"; //Ordenar por id en orden ascendente
+	$categorias = mysqli_query($conexion, $sql);
+    
+	$result = array();
+	if($categorias && mysqli_num_rows($categorias)>=1){
+		$result = mysqli_fetch_assoc($categorias);
+	}
+	return $result;
+}
+
+function conseguirEntrada($conexion, $id){
+	$sql = "SELECT e.*, c.nombre AS 'categoria', CONCAT(u.nombre,' ', u.apellidos) AS usuario ".
+	       " FROM entradas e ".
+		   "INNER JOIN categorias c ON e.categoria_id = c.id ".
+		   "INNER JOIN usuarios u ON e.usuario_id = u.id ".
+		   "WHERE e.id = $id";
+	$entrada = mysqli_query($conexion, $sql);
+
+	$resultado = array();
+	if ($entrada && mysqli_num_rows($entrada) >= 1){
+		$resultado = mysqli_fetch_assoc($entrada);
+	}
+	return  $resultado;
+}
+
+
+function conseguirEntradas($conexion, $limit = null, $categoria = null){
 	$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".
-		  "INNER JOIN categorias c ON e.categoria_id = c.id ".
-		  "ORDER BY e.id DESC LIMIT 4";	
+		  "INNER JOIN categorias c ON e.categoria_id = c.id ";      //ATENCIÓN ESPECIAL AL ORDEN DE LA CONSULTA SQL
+		  	
+    if(!empty($categoria)){
+		$sql .= "WHERE e.categoria_id = $categoria ";   //ATENCIÓN ESPECIAL AL ORDEN DE LA CONSULTA SQL
+	}
+
+	$sql .= "ORDER BY e.id DESC ";     //ATENCIÓN ESPECIAL AL ORDEN DE LA CONSULTA SQL Y A LOS ESPACIOS ANTES DE LAS COMILLAS
+
+	if($limit){
+		$sql .="LIMIT 4";
+	}
+
 	$entradas = mysqli_query($conexion, $sql);
 	
 	$resultado = array();
@@ -50,3 +87,5 @@ function conseguirUltimasEntradas($conexion){
 	}
 	return $resultado;
 }
+
+
