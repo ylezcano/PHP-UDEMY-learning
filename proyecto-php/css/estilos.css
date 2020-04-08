@@ -165,6 +165,7 @@ input[type="submit"],
     padding: 7px;
 }
 .boton{
+    color: white !important;
     text-align: center;
     width: 130px;
     font-weight: bold;

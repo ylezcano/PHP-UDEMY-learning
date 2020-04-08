@@ -65,12 +65,16 @@ function conseguirEntrada($conexion, $id){
 }
 
 
-function conseguirEntradas($conexion, $limit = null, $categoria = null){
+function conseguirEntradas($conexion, $limit = null, $categoria = null, $busqueda = null){
 	$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".
 		  "INNER JOIN categorias c ON e.categoria_id = c.id ";      //ATENCIÓN ESPECIAL AL ORDEN DE LA CONSULTA SQL
 		  	
     if(!empty($categoria)){
 		$sql .= "WHERE e.categoria_id = $categoria ";   //ATENCIÓN ESPECIAL AL ORDEN DE LA CONSULTA SQL
+	}
+
+	if(!empty($busqueda)){
+		$sql .= "WHERE e.titulo LIKE '%$busqueda%' ";   //ATENCIÓN ESPECIAL AL ORDEN DE LA CONSULTA SQL
 	}
 
 	$sql .= "ORDER BY e.id DESC ";     //ATENCIÓN ESPECIAL AL ORDEN DE LA CONSULTA SQL Y A LOS ESPACIOS ANTES DE LAS COMILLAS
