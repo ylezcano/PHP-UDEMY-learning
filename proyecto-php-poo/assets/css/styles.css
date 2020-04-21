@@ -17,6 +17,13 @@ a:visited{
 a:hover{
     color: #555555;
 }
+.alert_green{
+    color: green;
+}
+.alert_red{
+    color: red;
+}
+
 /* CONTAINER */
 #container{
     width: 80%;
@@ -247,3 +254,4 @@ button{
     clear: both;
     border-top: 5px solid #01B1EA;
 }
+
