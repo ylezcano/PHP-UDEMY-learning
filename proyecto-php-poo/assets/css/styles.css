@@ -257,6 +257,7 @@ button{
     float: left;
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 25px;
     text-align: center;
 }
 .product h2{
@@ -269,7 +270,8 @@ button{
     color: #555;
 }
 .product img{
-    width: 100px;
+    width: 150px;
+    height: 170px;
     margin-bottom: 10px;
 }
 
