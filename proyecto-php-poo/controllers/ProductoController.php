@@ -17,7 +17,7 @@ class ProductoController{
             $producto = new Producto();
             $producto->setId($id);
             
-            $pro = $producto->getOne();
+            $product = $producto->getOne();
             
         }
         require_once 'views/producto/ver.php';
