@@ -1,0 +1,23 @@
+.forms{
+    display: flex;
+    justify-content: space-evenly;
+}
+label{
+    font-weight: 900;
+}
+
+table{
+    border: 1px solid black;
+    font-size: 9px;
+}
+th{
+    border-bottom: 1px solid black;
+    width: 60px;
+}
+td{
+    border-bottom: 1px solid rgb(202, 202, 202);
+}
+.tema { 
+    width: 200px;
+    font-size: 10px;
+}
