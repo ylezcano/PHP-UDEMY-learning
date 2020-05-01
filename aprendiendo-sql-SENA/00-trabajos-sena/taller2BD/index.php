@@ -139,10 +139,11 @@ require_once 'helpers.php';
                     <th>TEMA</th>
                     <th>FECHA</th>
                     <th>PAGINAS</th>
+                    <th>ACCIÓN</th>
                 </tr>
                 <?php
                 $libros = conseguirLibros($db);
-                // $libro = mysqli_fetch_assoc($libros);
+                $libro = mysqli_fetch_assoc($libros);
                 // var_dump($libro);
                 if (!empty($libros)) :
                     while ($libro = mysqli_fetch_assoc($libros)) :
@@ -153,8 +154,9 @@ require_once 'helpers.php';
                             <td><?= $libro['editor']?></td>
                             <td><?= $libro['Nombre del autor']?></td>
                             <td><?= $libro['temas']?></td>
-                            <td><?= $libro['fecha']?></td>
+                            <td><?= $libro['fecha']?></td>  
                             <td><?= $libro['paginas']?></td>
+                            <td><a href="delete.php?&id=<?=$libro['id_libro']?>"><img src="imagenes/61391.png" alt=""></a></td>
                         </tr>
                 <?php
                     endwhile;

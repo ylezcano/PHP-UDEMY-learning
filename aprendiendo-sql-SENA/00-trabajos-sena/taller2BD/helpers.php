@@ -24,12 +24,12 @@ function conseguirTemas($conexion){
 }
 
 function conseguirLibros($conexion){ 
-	$sql = "SELECT l.nombre, l.tipo, l.editor, l.fecha, l.paginas, "
+	$sql = "SELECT l.id_libro, l.nombre, l.tipo, l.editor, l.fecha, l.paginas, "
 	."CONCAT(a.nombre,' ', a.apellidos)  AS 'Nombre del autor', a.direccion, t.temas, "
 	."SUBSTR(t.homenaje, 1, 20) AS 'homenaje' "
 	."FROM libro l "
 	."INNER JOIN tema t ON l.id_publicacion = t.id_publicacion "
-	."INNER JOIN autor a ON l.id_autor = a.id_autor; ";
+	."INNER JOIN autor a ON l.id_autor = a.id_autor ORDER BY l.id_autor DESC;";
 	$libros = mysqli_query($conexion, $sql);
     
 	$result = array();

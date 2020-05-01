@@ -26,7 +26,7 @@ a:hover{
 table{
     text-align: center;
     width: 100%;
-    border: 1px solid #555;
+    border: 1px solid #ccc;
 }
 td{
     border-top: 1px solid #ccc;
@@ -280,6 +280,12 @@ button{
     width: 150px;
     height: 170px;
     margin-bottom: 10px;
+}
+.img_carrito{
+    height: 80px;
+    width: 80px;
+    display: block;
+    margin: 10px auto;
 }
 
 #detail-product{

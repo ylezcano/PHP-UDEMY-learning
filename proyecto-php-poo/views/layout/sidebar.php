@@ -1,5 +1,6 @@
             <!-- BARRA LATERAL -->
             <aside id="lateral">
+
                 <div id="login" class="block_aside">
 
                     <?php if(!isset($_SESSION['identity'])): ?>

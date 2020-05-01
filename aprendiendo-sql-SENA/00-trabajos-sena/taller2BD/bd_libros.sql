@@ -74,7 +74,7 @@ SELECT * FROM autor WHERE apellidos = 'Socorro';
 -- 11
 SELECT nombre, paginas FROM libro WHERE paginas LIKE '%5';
 -- 12
-SELECT l.nombre AS 'Titulo', t.temas
+SELECT l.nombre AS 'Titulo', t.temas      
 	     FROM libro l
        INNER JOIN tema t ON t.temas = 'AVENTURA'
        WHERE  l.id_publicacion =  t.id_publicacion;
@@ -84,6 +84,6 @@ SELECT l.nombre, l.tipo, l.editor, l.fecha, l.paginas,
        SUBSTR(t.homenaje, 1, 20) AS 'homenaje'
 	FROM libro l
        INNER JOIN tema t ON l.id_publicacion = t.id_publicacion
-       INNER JOIN autor a ON l.id_autor = a.id_autor;
+       INNER JOIN autor a ON l.id_autor = a.id_autor ORDER BY l.id_libro ASC;
        
 

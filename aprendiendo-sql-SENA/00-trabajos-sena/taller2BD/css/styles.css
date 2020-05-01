@@ -21,3 +21,12 @@ td{
     width: 200px;
     font-size: 10px;
 }
+
+img{
+    width: 15px;
+    display: block;
+    margin: auto;
+}
+td{
+    text-align: center;
+}
