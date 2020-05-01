@@ -45,6 +45,7 @@ class CarritoController{
             }
         }
         header('Location:' . base_url . "carrito/index");
+        ob_end_flush();
     }
 
     public function remove(){

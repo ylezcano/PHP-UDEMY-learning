@@ -331,3 +331,18 @@ button{
     border-top: 5px solid #01B1EA;
 }
 
+/*CARRITO*/
+.total-carrito{
+    float: right;
+    width: 302px;
+}
+.total-carrito h3{
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+.button-pedido{
+    display: block;
+    float: right;
+    width: 100px;
+}
