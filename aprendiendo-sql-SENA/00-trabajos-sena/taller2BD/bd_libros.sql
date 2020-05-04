@@ -1,18 +1,55 @@
 CREATE DATABASE libros;
 USE libros;
 
-CREATE TABLE autor (
+CREATE TABLE autor(
   id_autor     int   AUTO_INCREMENT  primary key,
   nombre       varchar(255),
   apellidos    varchar(255),
   direccion    varchar(255)
 );
 
+--PROCEDIMIENTO DE ALMACENADO
+DELIMITER //
+CREATE PROCEDURE insertar_autor(
+       IN id_autor     int,
+       IN nombre       varchar(255),
+       IN apellidos    varchar(255),
+       IN direccion    varchar(255) 
+)
+BEGIN
+INSERT INTO autor( id_autor, nombre, apellidos, direccion) VALUES (NULL,nombre,apellidos,direccion);
+END //
+DELIMITER ;
+
+CALL insertar_autor (NULL,'Gabriel', 'Garcia Marquez','Carrera 7 Calle 125');
+CALL insertar_autor (NULL,'Pablo', 'Neruda','Calle 4 No. 5 – 10');
+CALL insertar_autor (NULL,'Mario', 'Vargas Llosa','Av. Ciudad de Cali No. 6C-09');
+CALL insertar_autor (NULL,'Jorge Luis', 'Borges','Calle 48b sur No. 21-13');
+CALL insertar_autor (NULL,'Julio', 'Cortázar','Av. Calle 19 N° 2-49 Centro');
+
 CREATE TABLE tema (
-  id_publicacion  integer(15)   auto_increment  primary key,
+  id_publicacion  int   auto_increment  primary key,
   temas           varchar(255),
   homenaje        text
 );
+
+--PROCEDIMIENTO DE ALMACENADO
+DELIMITER //
+CREATE PROCEDURE insertar_tema(
+       IN id_publicacion  int   auto_increment  primary key,
+       IN temas           varchar(255),
+       IN homenaje        text
+)
+BEGIN
+INSERT INTO tema(id_publicacion, temas, homenaje) VALUES (NULL,temas,homenaje);
+END //
+DELIMITER ;
+
+CALL insertar_autor (NULL,'LITERATURA', 'El libro de la literatura. ... Es por tanto una o..');
+CALL insertar_autor (NULL,'COMIC Y FANTASÍA', 'La historieta o cómic fantástico es uno de los gén...');
+CALL insertar_autor (NULL,'INFANTIL Y JUVENIL', 'Se entiende por literatura infantil la literatura ...');
+CALL insertar_autor (NULL,'BIENESTAR Y SALUD', 'Resultados de búsqueda Beneficios de leer para la...');
+CALL insertar_autor (NULL,'ACTUALIDAD', 'La novela de aventuras es un género literario que...');
 
 CREATE TABLE libro (
   id_libro  integer(15)   auto_increment  primary key,
@@ -27,23 +64,28 @@ CREATE TABLE libro (
   FOREIGN KEY (id_publicacion) REFERENCES tema(id_publicacion)
 );
 
-INSERT INTO autor VALUES (NULL,'Gabriel', 'Garcia Marquez','Carrera 7 Calle 125');
-INSERT INTO autor VALUES (NULL,'Pablo', 'Neruda','Calle 4 No. 5 – 10');
-INSERT INTO autor VALUES (NULL,'Mario', 'Vargas Llosa','Av. Ciudad de Cali No. 6C-09');
-INSERT INTO autor VALUES (NULL,'Jorge Luis', 'Borges','Calle 48b sur No. 21-13');
-INSERT INTO autor VALUES NULL,('Julio', 'Cortázar','Av. Calle 19 N° 2-49 Centro');
+--PROCEDIMIENTO DE ALMACENADO
+DELIMITER //
+CREATE PROCEDURE insertar_libro(
+       IN id_libro  int,
+       IN nombre    varchar(255),
+       IN tipo      varchar(255),
+       IN editor    varchar(255),
+       IN fecha     date,
+       IN paginas   int(7),
+       IN id_autor  int(15),
+       IN id_publicacion  int(15),
+)
+BEGIN
+INSERT INTO libro(id_libro, nombre, tipo, editor, fecha, paginas, id_autor, id_publicacion) VALUES (NULL,nombre, tipo, editor, fecha, paginas, id_autor, id_publicacion);
+END //
+DELIMITER ;
 
-INSERT INTO tema VALUES (NULL,'LITERATURA', 'El libro de la literatura. ... Es por tanto una o..');
-INSERT INTO tema VALUES (NULL,'COMIC Y FANTASÍA', 'La historieta o cómic fantástico es uno de los gén...');
-INSERT INTO tema VALUES (NULL,'INFANTIL Y JUVENIL', 'Se entiende por literatura infantil la literatura ...');
-INSERT INTO tema VALUES (NULL,'BIENESTAR Y SALUD', 'Resultados de búsqueda Beneficios de leer para la...');
-INSERT INTO tema VALUES (NULL,'ACTUALIDAD', 'La novela de aventuras es un género literario que...');
-
-INSERT INTO libro VALUES (NULL,'Cronica de una muerte anunciada', 'NOVELA','oveja negra','1998-04-25',225,1,1);
-INSERT INTO libro VALUES (NULL,'Cien Sonetos de amor', 'POEMAS','DEBOLSILLO','2004-04-05',355,2,2);
-INSERT INTO libro VALUES (NULL,'La ciudad de los perrros', 'NOVELA','Alfaguara','2012-05-25',258,3,3);
-INSERT INTO libro VALUES (NULL,'El tamaño de mi esperanza', 'NOVELA','RBA molino','2001-07-12',89,4,4);
-INSERT INTO libro VALUES (NULL,'Antología', 'NOVELA','Eneida editorial','2012-06-06',157,5,5);
+CALL insertar_autor (NULL,'Cronica de una muerte anunciada', 'NOVELA','oveja negra','1998-04-25',225,1,1);
+CALL insertar_autor (NULL,'Cien Sonetos de amor', 'POEMAS','DEBOLSILLO','2004-04-05',355,2,2);
+CALL insertar_autor (NULL,'La ciudad de los perrros', 'NOVELA','Alfaguara','2012-05-25',258,3,3);
+CALL insertar_autor (NULL,'El tamaño de mi esperanza', 'NOVELA','RBA molino','2001-07-12',89,4,4);
+CALL insertar_autor (NULL,'Antología', 'NOVELA','Eneida editorial','2012-06-06',157,5,5);
 
 
 
