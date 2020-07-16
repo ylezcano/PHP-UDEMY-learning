@@ -64,7 +64,7 @@ class UsuarioController{
                 }
 
             }else{
-                $_SESSION['error_login'] = "identificación fallida !!";
+                $_SESSION['error_login'] = "Usuario o contraseña incorrectos";
             }
       
         }
